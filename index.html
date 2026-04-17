@@ -19,7 +19,6 @@
       color: white;
     }
 
-    /* overlay */
     body::before {
       content: "";
       position: fixed;
@@ -68,13 +67,10 @@
       background: rgba(255,255,255,0.12);
       padding: 18px;
       border-radius: 15px;
-
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-
       border: 1px solid rgba(255,255,255,0.2);
       box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-
       animation: fadeIn 0.6s ease;
     }
 
@@ -100,7 +96,37 @@
       opacity: 0.7;
     }
 
-    /* botão whatsapp */
+    /* serviços */
+    .servico {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .servico:last-child {
+      border-bottom: none;
+    }
+
+    .servico p {
+      margin: 3px 0 0;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .btn-whats {
+      background: #25D366;
+      color: white;
+      padding: 10px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* botão flutuante */
     .whatsapp {
       position: fixed;
       bottom: 20px;
@@ -110,18 +136,15 @@
       padding: 15px;
       border-radius: 50%;
       font-size: 20px;
-      text-align: center;
       text-decoration: none;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    /* animação */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* desktop */
     @media (min-width: 700px) {
       .grid {
         grid-template-columns: 1fr 1fr;
@@ -160,10 +183,32 @@
     </div>
 
     <div class="card">
-      <h2>🛒 Comércio</h2>
-      <p>Mercado: (nome + telefone)</p>
-      <p>Padaria: (nome + telefone)</p>
-      <p>Farmácia: (nome + telefone)</p>
+      <h2>📲 Serviços Rápidos</h2>
+
+      <div class="servico">
+        <div>
+          <strong>🚕 Taxi do Fulano</strong>
+          <p>Atendimento na região</p>
+        </div>
+        <a class="btn-whats" href="https://wa.me/5532999999999" target="_blank">💬</a>
+      </div>
+
+      <div class="servico">
+        <div>
+          <strong>🔥 Gás do Beltrano</strong>
+          <p>Entrega rápida</p>
+        </div>
+        <a class="btn-whats" href="https://wa.me/5532888888888" target="_blank">💬</a>
+      </div>
+
+      <div class="servico">
+        <div>
+          <strong>🍽 Restaurante do Ciclano</strong>
+          <p>Pedidos e marmitex</p>
+        </div>
+        <a class="btn-whats" href="https://wa.me/5532777777777" target="_blank">💬</a>
+      </div>
+
     </div>
 
     <div class="card">
@@ -178,7 +223,6 @@
   Portal do Sol - Chácara MG
 </footer>
 
-<!-- botão whatsapp -->
 <a class="whatsapp" href="https://wa.me/SEUNUMERO" target="_blank">💬</a>
 
 </body>

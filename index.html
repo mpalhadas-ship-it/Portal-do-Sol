@@ -13,15 +13,34 @@
     }
 
     header {
-      background: linear-gradient(90deg, #FF9800, #F57C00);
-      color: white;
-      text-align: center;
-      padding: 30px 15px;
+      background: url('fundo.jpg') center/cover no-repeat;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
+    /* camada escura por cima da imagem */
+    header::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      top: 0;
+      left: 0;
+    }
+
+    .logo {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .logo img {
+      max-width: 250px;
+      width: 80%;
     }
 
     section {
@@ -49,16 +68,6 @@
       font-weight: bold;
     }
 
-    .btn {
-      display: block;
-      background: #25D366;
-      color: white;
-      text-align: center;
-      padding: 12px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -71,8 +80,9 @@
 <body>
 
 <header>
-  <h1>Portal do Sol</h1>
-  <p>Guia de informações - Chácara MG</p>
+  <div class="logo">
+    <img src="logo.png" alt="Portal do Sol">
+  </div>
 </header>
 
 <section>
@@ -105,11 +115,6 @@
   <div class="card">
     <h2>📢 Avisos</h2>
     <p>Sem avisos no momento.</p>
-  </div>
-
-  <div class="card">
-    <h2>📍 Localização</h2>
-    <a href="#">Ver no Google Maps</a>
   </div>
 
 </section>

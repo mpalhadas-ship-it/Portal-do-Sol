@@ -1,229 +1,211 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Portal do Sol - Chácara MG</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Portal do Sol</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:url('fundo.jpg') center/cover fixed;
+  color:white;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: url('fundo.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-    }
+body::before {
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.45);
+  z-index:-1;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.45);
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
+header {
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
 
-    header {
-      height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+h1 {margin:0;font-size:40px;}
 
-    .logo-texto h1 {
-      font-size: 46px;
-      margin: 0;
-      font-weight: 700;
-    }
+.container {
+  max-width:900px;
+  margin:auto;
+  padding:15px;
+}
 
-    .logo-texto p {
-      margin: 5px 0 0;
-      font-size: 16px;
-      color: #A5D6A7;
-      letter-spacing: 2px;
-    }
+.card {
+  background:rgba(255,255,255,0.12);
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  backdrop-filter:blur(10px);
+}
 
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 15px;
-    }
+/* menu */
+.menu button {
+  width:100%;
+  margin:5px 0;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#FFD54F;
+  font-weight:bold;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 15px;
-    }
+/* telas */
+.tela {
+  display:none;
+}
 
-    .card {
-      background: rgba(255,255,255,0.12);
-      padding: 18px;
-      border-radius: 15px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-      animation: fadeIn 0.6s ease;
-    }
+.ativa {
+  display:block;
+}
 
-    h2 {
-      margin-top: 0;
-      color: #FFD54F;
-    }
+/* voltar */
+.voltar {
+  margin-top:15px;
+  display:inline-block;
+  color:#FFD54F;
+  cursor:pointer;
+}
 
-    p {
-      margin: 6px 0;
-    }
+/* serviços */
+.servico {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
 
-    a {
-      color: #90CAF9;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 12px;
-      opacity: 0.7;
-    }
-
-    /* serviços */
-    .servico {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .servico:last-child {
-      border-bottom: none;
-    }
-
-    .servico p {
-      margin: 3px 0 0;
-      font-size: 13px;
-      opacity: 0.8;
-    }
-
-    .btn-whats {
-      background: #25D366;
-      color: white;
-      padding: 10px 12px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    /* botão flutuante */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 20px;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (min-width: 700px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-  </style>
+.btn {
+  background:#25D366;
+  padding:8px 10px;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo-texto">
+  <div>
     <h1>Portal do Sol</h1>
-    <p>GRANJEAMENTO</p>
+    <p>Guia da região</p>
   </div>
 </header>
 
-<section>
-  <div class="grid">
+<div class="container">
 
-    <div class="card">
-      <h2>📞 Telefones Úteis</h2>
-      <p>Polícia: <a href="tel:190">190</a></p>
-      <p>SAMU: <a href="tel:192">192</a></p>
-      <p>Bombeiros: <a href="tel:193">193</a></p>
-      <p>Prefeitura: (adicionar)</p>
-      <p>Posto de Saúde: (adicionar)</p>
-    </div>
+<!-- MENU -->
+<div id="menu" class="card menu ativa">
+  <button onclick="abrir('telefones')">📞 Telefones</button>
+  <button onclick="abrir('onibus')">🚌 Ônibus</button>
+  <button onclick="abrir('servicos')">📲 Serviços</button>
+  <button onclick="abrir('prestadores')">🛠️ Prestadores</button>
+  <button onclick="abrir('avisos')">📢 Avisos</button>
+  <button onclick="abrir('situacao')">📊 Situação</button>
+  <button onclick="abrir('emergencias')">🐍 Emergências</button>
+</div>
 
-    <div class="card">
-      <h2>🚌 Ônibus</h2>
-      <p><strong>→ Juiz de Fora</strong></p>
-      <p>(horários)</p>
-      <p><strong>→ Portal do Sol</strong></p>
-      <p>(horários)</p>
-    </div>
+<!-- TELEFONES -->
+<div id="telefones" class="card tela">
+<h2>📞 Telefones</h2>
+<p>Polícia: <a href="tel:190">190</a></p>
+<p>SAMU: <a href="tel:192">192</a></p>
+<p>Bombeiros: <a href="tel:193">193</a></p>
+<span class="voltar" onclick="voltar()">⬅ Voltar</span>
+</div>
 
-    <div class="card">
-      <h2>📲 Serviços Rápidos</h2>
+<!-- ONIBUS -->
+<div id="onibus" class="card tela">
+<h2>🚌 Ônibus</h2>
+<p>→ Juiz de Fora</p>
+<p>(horários)</p>
+<p>→ Portal do Sol</p>
+<p>(horários)</p>
+<span class="voltar" onclick="voltar()">⬅ Voltar</span>
+</div>
 
-      <div class="servico">
-        <div>
-          <strong>🚕 Taxi do Fulano</strong>
-          <p>Atendimento na região</p>
-        </div>
-        <a class="btn-whats" href="https://wa.me/5532999999999" target="_blank">💬</a>
-      </div>
+<!-- SERVIÇOS -->
+<div id="servicos" class="card tela">
+<h2>📲 Serviços</h2>
 
-      <div class="servico">
-        <div>
-          <strong>🔥 Gás do Beltrano</strong>
-          <p>Entrega rápida</p>
-        </div>
-        <a class="btn-whats" href="https://wa.me/5532888888888" target="_blank">💬</a>
-      </div>
+<div class="servico">
+<span>🚕 Taxi</span>
+<a class="btn" href="https://wa.me/5532999999999">💬</a>
+</div>
 
-      <div class="servico">
-        <div>
-          <strong>🍽 Restaurante do Ciclano</strong>
-          <p>Pedidos e marmitex</p>
-        </div>
-        <a class="btn-whats" href="https://wa.me/5532777777777" target="_blank">💬</a>
-      </div>
+<div class="servico">
+<span>🔥 Gás</span>
+<a class="btn" href="https://wa.me/5532888888888">💬</a>
+</div>
 
-    </div>
+<div class="servico">
+<span>🍽 Restaurante</span>
+<a class="btn" href="https://wa.me/5532777777777">💬</a>
+</div>
 
-    <div class="card">
-      <h2>📢 Avisos</h2>
-      <p>Sem avisos no momento.</p>
-    </div>
+<span class="voltar" onclick="voltar()">⬅ Voltar</span>
+</div>
 
-  </div>
-</section>
+<!-- PRESTADORES -->
+<div id="prestadores" class="card tela">
+<h2>🛠️ Prestadores</h2>
+<p>Pedreiro</p>
+<p>Eletricista</p>
+<p>Encanador</p>
+<span class="voltar" onclick="voltar()">⬅ Voltar</span>
+</div>
 
-<footer>
-  Portal do Sol - Chácara MG
-</footer>
+<!-- AVISOS -->
+<div id="avisos" class="card tela">
+<h2>📢 Avisos</h2>
+<p>Sem avisos</p>
+<span class="voltar" onclick="voltar()">⬅ Voltar</span>
+</div>
 
-<a class="whatsapp" href="https://wa.me/SEUNUMERO" target="_blank">💬</a>
+<!-- SITUAÇÃO -->
+<div id="situacao" class="card tela">
+<h2>📊 Situação</h2>
+<p>💧 Água: Normal</p>
+<p>⚡ Energia: Normal</p>
+<p>🛣️ Estrada: Boa</p>
+<span class="voltar" onclick="voltar()">⬅ Voltar</span>
+</div>
+
+<!-- EMERGÊNCIAS -->
+<div id="emergencias" class="card tela">
+<h2>🐍 Emergências</h2>
+<p><strong>Picada de cobra:</strong></p>
+<p>❌ Não amarrar</p>
+<p>❌ Não cortar</p>
+<p>➡ Ir ao hospital</p>
+<p><strong>192 - SAMU</strong></p>
+<span class="voltar" onclick="voltar()">⬅ Voltar</span>
+</div>
+
+</div>
+
+<script>
+function abrir(id){
+  document.getElementById("menu").classList.remove("ativa");
+  document.querySelectorAll(".tela").forEach(t => t.style.display = "none");
+  document.getElementById(id).style.display = "block";
+}
+
+function voltar(){
+  document.querySelectorAll(".tela").forEach(t => t.style.display = "none");
+  document.getElementById("menu").classList.add("ativa");
+}
+</script>
 
 </body>
 </html>
